@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaysia Travel</title>
+    <style media="screen">
+      body {
+        font-family: Verdana;
+      }
+
+      .banner {
+        margin: -8px;
+        width: 50%;
+        background: url(https://brightcove04pmdo-a.akamaihd.net/5104226627001/5104226627001_5230061447001_5203619434001-vs.jpg?pubId=5104226627001&videoId=5203619434001);
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fff;
+        float: left;
+        height: 100vh;
+        text-shadow: 1px 1px 1px #000;
+      }
+
+      .banner h1 {
+        padding: 20px;
+      }
+
+      .banner p {
+        padding:20px;
+      }
+
+      .banner a {
+        color:#fff;
+        font-size:small;
+        text-decoration: none;
+      }
+
+      .banner a:hover{
+        color:#e91e63;
+      }
+
+      .search {
+        float: left;
+        width: 48%;
+        padding:1%;
+        height: 90vh;
+      }
+
+      .img {
+
+      }
+
+      .img img {
+        width:100%;
+        height:200px;
+        object-fit: cover;
+        border: 5px solid #E91E63;
+      }
+
+      .title {
+
+      }
+
+      li {
+        display: inline-block;
+        margin:2px;
+      }
+
+      li a {
+        
+        padding:10px;
+        background-color: #000;
+        color:#fff;
+      }
+      .description {
+        clear:both;
+        text-align: justify;
+      }
+
+      .loader {
+        margin:auto;
+        text-align:center;
+        padding-top: 100px;
+      }
+
+      .result {
+        padding:5%;
+        margin-left:10%;
+        margin-right:10%;
+      }
+
+      .whiteline {
+        height: 5px;
+        background-color: #fff;
+        width: 20%;
+        margin-left: 20px;
+        margin-top: -30px;
+      }
+
+      @media only screen and (max-width: 700px) {
+        .banner {
+          background: none !important;
+          height:auto !important;
+          width:100% !important;
+          color:#000;
+          text-shadow: none !important;
+        }
+
+        .banner a {
+          color:#607D8B;
+        }
+
+        .search {
+          width:98% !important;
+        }
+
+        .whiteline {
+          background-color:#000 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <h1>Malaysia Travel</h1>
+      <div class="whiteline">
+
+      </div>
+      <p>
+        Create JS file with your matric number for example xxxxxx.js (<i>Please just create the file and name with your matric no and do not append anything to avoid 0 mark </i>)
+        Your JS should GET data from below URL and output as in the screenshots.
+        <br><br>
+        1.	<a href="https://adisazizan.xyz/tutorial/api/travel.php">https://adisazizan.xyz/tutorial/api/travel.php</a> <br>
+
+      </p>
+    </div>
+
+
+    <div class="search">
+      <div class="list-dessert">
+        <ul id="lists">
+          <!-- <li onclick="detail('dessert', 'about', 'image')"><a href="#">Cendol</a></li> -->
+        </ul>
+      </div>
+      <div class="loader">
+        <img src="https://travellerz.com/assets/common/images/loader-1.gif" alt="">
+      </div>
+      <div class="result">
+        <div class="img" id="dessert-img">
+          <!-- Image load from Javascript -->
+        </div>
+        <div class="title" id="title">
+          <h2></h2>
+        </div>
+        <div class="description" id="desc">
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="1816349.js" charset="utf-8"></script>
+  </body>
+</html>

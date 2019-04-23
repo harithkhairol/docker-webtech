@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <input type="text" id="message">
+    <input type="submit" id="send" value="send">
+
+    <div class="product" onclick="cart('Iphone X')">
+
+        <p>Iphone X</p>
+        <p>Price: RM 2000</p>
+
+    </div>
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
+
+  <script>
+
+      function cart(a){
+
+        localStorage.setItem("cart", a);
+
+      }
+
+
+/////////////
+  
+  $("#send").click(function(){
+
+    var message = $("#message").val();
+    // alert(message);
+
+    $.post("https://adisazizan.xyz/tutorial/message.php", {
+
+        name: "Jon Snow",
+        message: "message"
+
+    }, function(data){
+
+        if(data.status != "success"){
+
+            alert("Theres an error.");
+
+        }else{
+
+            alert("Success.");
+
+        }
+
+        console.log(data);
+
+    });
+
+  });
+
+  alert(localStorage.getItem("aha"));
+  localStorage.setItem("aha", "Daenerys Targaryan")
+  </script>
+    
+</body>
+</html>

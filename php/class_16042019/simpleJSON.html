@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        <script type="text/javascript">
+            var client = new XMLHttpRequest();
+            client.open("GET", "http://api.zippopotam.us/MY/70400", true);
+            client.onreadystatechange = function() {
+                if(client.readyState == 4) {
+                    var response = JSON.parse(client.responseText);
+                    
+                    // h1.setAttribute('style', 'white-space: pre;');
+
+                    document.getElementById('result').setAttribute('style', 'white-space: pre;');
+                    document.getElementById('result').textContent = "I live in "+response['places'][0]['place name']+"(lat:"+response['places'][0]['latitude']+", long:"+response['places'][0]['longitude']+")." +"\r\n"  +"It is a beautiful city.";
+                    // alert(client.responseText);
+                };
+            };
+            
+            client.send();
+            </script>
+
+            <div id="result"></div>
+    
+</body>
+</html>

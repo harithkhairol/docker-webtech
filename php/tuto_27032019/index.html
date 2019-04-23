@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+
+.box {
+  border: 5px solid black;
+  padding: 80px;
+  margin: 50px;
+  text-align: center;
+}
+
+
+</style>
+
+<body>
+
+    <div class="box">
+
+        <div class="box">
+
+            <img src="https://tarmac-bluecircle.co.uk/wp-content/uploads/2014/08/the-sky-is-not-the-limit.jpg" alt="">
+            <p id="a">27/3/2019</p>
+
+        </div>
+
+    </div>
+
+<script>
+
+    var d = new Date();
+    var day = d.getDate();
+    var month = d.getMonth()+1;
+    var year = d.getFullYear();
+    document.querySelector("#a").innerHTML = day +"/" +month +"/"+year;
+    document.querySelector("#a").style.color = "red";
+
+    console.log("Hello" + d.getDate()+"/" +d.getMonth() +"/"+d.getFullYear());
+
+
+</script>
+    
+</body>
+</html>

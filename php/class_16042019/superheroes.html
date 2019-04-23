@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JSON parse()</h1>
+
+<p>JSON.parse() parses a string, written in JSON format, and returns a JavaScript object.</p>
+
+<p>The value of "firstName" is:</p>
+
+<input type="text" id="txt" value="">
+<button name="button" type="button" onclick="check()">Submit</button>
+
+<p id="demo"></p>
+
+<script>
+
+//var txt = document.getElementById("txt");
+
+
+function check(){
+
+    var obj = JSON.parse('{"squad name": "Super hero squad","hometown":"Metro city","members":[{"member name":"Molecule Man","secret identity":"Dan Jukes"},{"member name":"Madame Uppercut","secret identity":"Jane Wilson"}]}');
+
+if(txt.value == "Molecule Man" == obj['members'][0]['member name'] || txt.value =="Madame Uppercut" == obj['members'][1]['member name']){
+
+    document.getElementById("demo").innerHTML = "Welcomer Hero!";
+
+}
+
+
+
+}
+
+
+
+</script>
+
+</body>
+</html>

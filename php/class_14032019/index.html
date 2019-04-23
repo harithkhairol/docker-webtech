@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>14032019</title>
+</head>
+
+
+
+<body>
+
+<h1>Course Registration</h1>
+<hr>
+
+ <p></p>
+
+ <h2>Select Course</h2>
+
+ <input type="radio" name="c" id="c" value="1">Web
+    
+ <script>
+
+        //create constructor function
+        
+        function Course(cCode, cName,  cCh, seats){
+        
+            this.cCode = cCode;
+            this.cName = cName;
+            this.cCh = cCh;
+            this.seats = seats;
+        
+        }
+        
+        // create object instances
+        
+        var course1 = new Course('CSC1234', 'Web', 3, 1);
+        var course2 = new Course('CSC2930', 'ISE', 3, 2);
+        var course3 = new Course('CSC9021', 'ICU', 3, 3);
+        
+        // display
+        
+        display = "I am registered in " + course1.cName +", "+
+                  course2.cName + " and "+ course3.cName;
+        
+        var show = document.querySelector('p').textContent= display;
+
+        // radio
+
+        // var btn.onchange = function(){
+
+        //     var select = document.getElementById('c');
+        //     if(select.value === 1){
+        //         alert('Kucing');
+        //     }
+
+        // }
+        
+        
+        
+</script>
+    
+</body>
+</html>

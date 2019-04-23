@@ -1,0 +1,70 @@
+body{
+    margin: 0px;
+}
+
+.left{
+
+background-image: url(Alumni.jpg);
+width: 50%;
+height: 100vh;
+float: left;
+background-size: cover;
+background-position: center;
+
+}
+
+.left::after{
+
+    content:"";
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    left: 0;
+    background-image:linear-gradient(blue, white);
+    position: absolute; 
+    opacity: 0.5;
+       
+}
+
+.fab{
+
+    border-radius:50%;
+    background-color:pink;
+    height:50px;
+    width: 50px;
+    bottom: 20px;
+    right: 50px;
+    position: absolute;
+
+}
+
+.fab:hover{
+
+    background-color: black;
+    cursor: pointer;
+
+}
+
+.right{
+
+    float: left;
+    width: 50%;
+
+}
+
+.welcome{
+
+    position: absolute;
+    top: 20%;
+    right: 10%;
+
+}
+
+.title{
+
+    position: absolute;
+    left: 10%;
+    color: white;
+    top: 10%;
+    font-size: 40px;
+}

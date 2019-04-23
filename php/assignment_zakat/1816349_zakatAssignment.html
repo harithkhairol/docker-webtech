@@ -1,0 +1,89 @@
+<!-- Name: Muhammad Harith bin Khairolanuar
+Matric No: 1816349
+INFO 2302 Section 3
+Zakat Assignment -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zakat Assignment</title>
+</head>
+<body>
+
+<h1>Zakat Assessment</h1>
+
+<h2>Annual Income (RM)</h2>
+Annual Income: &nbsp; <input type="number" id="annual">
+
+<br><br>
+
+<h2>Household Deductions (RM)</h2>
+<p id="self"></p>
+
+<p id="wife"></p>
+
+Children (RM2800 per child): &nbsp; <input type="number" id="numChild">
+
+<br>
+
+<p id="house"></p>
+
+<h2>Other Deductions</h2>
+<p>Employees' Provided Fund: 11% of Annual Income</p>
+<p id="epf"></p>
+
+
+<button type="submit">Calculate</button>
+
+<p id="outcome"></p>
+
+
+
+
+<script>
+
+var btn = document.querySelector('button');
+
+var annual = document.getElementById('annual');
+var selfText = document.getElementById('self');
+var wifeText = document.getElementById('wife');
+var numChild = document.getElementById('numChild');
+var epfText = document.getElementById('epf');
+var houseText = document.getElementById('house');
+var outcomeText = document.getElementById('outcome');
+
+selfValue=10750;
+wifeValue=5000;
+
+selfText.textContent = 'Self: RM'+selfValue;
+wifeText.textContent = 'Wife: RM'+wifeValue;
+houseText.textContent = 'Total Household Deductions is RM';
+epfText.textContent = 'Total EPF is RM';
+outcomeText.textContent = 'Based on your annual income and deductions, your zakat assessment for this year is RM';
+
+
+btn.onclick = function(){
+
+    var houseValue = selfValue+wifeValue+(numChild.value*2800);
+    houseText.textContent = 'Total Household Deductions is RM'+houseValue;
+
+    var epfValue = annual.value * (11/100); 
+    epfText.textContent = 'Total EPF is RM'+epfValue;
+
+    var zakatValue = (2.5/100)*(annual.value-(houseValue+epfValue));
+
+    outcomeText.textContent = 'Based on your annual income and deductions, your zakat assessment for this year is RM'+zakatValue;
+
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>

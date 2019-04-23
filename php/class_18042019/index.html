@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+	<meta charset='UTF-8'>
+	
+	<title>Sample US - Zippopotamus</title>
+	
+	<link rel='stylesheet' href='http://api.zippopotam.us/static/bootstrap/css/bootstrap.css'>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		$(function() {
+			
+			$(document).ready( function() 
+			{
+				$('#citybox').hide();
+				$('#statebox').hide();
+                $('#latbox').hide();
+				$('#longbox').hide();
+				
+			});
+			
+			// OnKeyDown Function
+			$("#zip").keyup(function() {
+				var zip_in = $(this);
+				var zip_box = $('#zipbox');
+				
+				if (zip_in.val().length<5)
+				{
+					zip_box.removeClass('error success');
+				}
+				else if ( zip_in.val().length>5)
+				{
+					zip_box.addClass('error').removeClass('success');
+				}
+				else if ((zip_in.val().length == 5) ) 
+				{
+					
+					// Make HTTP Request
+					$.ajax({
+						url: "http://api.zippopotam.us/my/" + zip_in.val(),
+						cache: false,
+						dataType: "json",
+						type: "GET",
+					  success: function(result, success) {
+							// Make the city and state boxes visible
+							$('#citybox').slideDown();
+							$('#statebox').slideDown();
+                            $('#latbox').slideDown();
+				            $('#longbox').slideDown();
+						
+							// US Zip Code Records Officially Map to only 1 Primary Location
+							places = result['places'][0];
+							$("#city").val(places['place name']);
+							$("#state").val(places['state']);
+                            $("#latitude").val(places['latitude']);
+							$("#longitude").val(places['longitude']);
+							zip_box.addClass('success').removeClass('error');
+						},
+						error: function(result, success) {
+							zip_box.removeClass('success').addClass('error');
+						}
+					});
+				}
+	});
+
+		});
+			
+	</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30975659-1']);
+	  _gaq.push(['_setDomainName', 'zippopotam.us']);
+	    _gaq.push(['_trackPageview']);
+
+		  (function() {
+		      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+					    })();
+
+                        </script>
+                        
+                        <script>
+            
+                function init() {
+                  var mapOptions = {                                 // Set up the map options
+                    center: new google.maps.LatLng(40.782710,-73.965310),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    zoom: 13
+                  };
+                  var venueMap;                                      // Map() draws a map
+                  venueMap = new google.maps.Map(document.getElementById('map'), mapOptions);
+                }
+
+
+                
+                function loadScript() {
+                  var script = document.createElement('script');     // Create <script> element
+                  script.src = 'http://maps.googleapis.com/maps/api/js?sensor=false&callback=init';
+                  document.body.appendChild(script);                 // Add element to page
+                }
+                
+                window.onload = loadScript;                          // on load call loadScript()
+                
+                            </script>
+
+</head>
+<body>
+<a href="https://github.com/ekotechnology/Zippopotamus-Cloud"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://a248.e.akamai.net/camo.github.com/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
+<br/><br/>
+	<div class="container">
+	<div class="span8">
+	<div class='hero-unit'>
+		<h2>Zippoptamus</h2>
+		<br/>
+		<p>Try entering a zip code like <b>90210</b> Beverly Hills, CA!</p>
+		<br/>
+		<form action="#" method="post" class="form fancy-form">
+
+			<fieldset>
+				<legend>Malaysia Address Autocompletion</legend>
+				<br/>
+				<div>
+					<div id="zipbox" class="control-group">
+						<label for="zip">Zip</label>
+						<input type="text" class='' pattern="[0-9]*" name="zip" id="zip" placeholder="Type your ZIP code"/>
+					</div>	
+				</div>
+				<div>
+					<div id="citybox" class="control-group" >
+						<label for="city">City</label>
+						<input type="text" name="city" id="city" placeholder="" />
+					</div>
+					<div id="statebox" class="control-group">
+						<label for="state">State</label>
+						<input type="text" name="state" id="state" placeholder="" />
+                    </div>
+                    
+                    <div id="latbox" class="control-group">
+						<label for="state">Latitude</label>
+						<input type="text" name="latitude" id="latitude" placeholder="" />
+                    </div>
+                    
+                    <div id="longbox" class="control-group">
+						<label for="state">Longitude</label>
+						<input type="text" name="longitude" id="longitude" placeholder="" />
+					</div>
+				</div>
+
+				<div>
+					<a onclick="aha()" class='btn btn-success btn-large'>Submit</a>
+                </div>
+
+                <script>
+                
+                $('submit').on('click', function(event){
+
+                    event.preventDefault();
+                    var lat = document.getElementById('latitude').value;
+                    var lng = document.getElementById('longitude').value;
+                    render_map(lat, lng);
+                })
+
+                </script>
+                
+                <div class="map" id="map"></div>
+            </fieldset>
+            
+
+		</form>	
+	</div>
+	</div>
+	</div>
+</body>
+
+</html>

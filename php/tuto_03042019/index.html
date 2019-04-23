@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" name="" value="" id="movie">
+    <button type="button" name="button" id="btn">Search</button>
+
+    <h1 id="title"></h1>
+    <div id="poster">
+
+
+    </div>
+
+    <hr>
+
+    <p id="plot"></p>
+
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+       
+      
+
+    <script>
+
+        // start pure js
+
+        var arr =  [1, 2, 3];
+        var fruit = ["apple", "banana", "mango"];
+
+        console.log(arr);
+        console.log(fruit[1]);
+        
+
+
+        var combine = arr.concat(fruit);
+
+  
+
+        console.log(combine);
+
+        function findMango(man){
+
+            if (man=="mango"){
+
+                return man;
+
+            }
+
+        }
+
+        console.log(fruit.find(findMango).toUpperCase());
+
+        var temp = [];
+
+        // pop for delete last array
+        // push for insert to array
+
+        for(var i=0; i<fruit.length; i++){
+
+            temp.push((fruit[i]).toUpperCase()); 
+
+        }
+
+        fruit = temp;
+        console.log(fruit);
+
+        // end pure js
+
+
+        // start jquery
+
+        
+        // quiz getelementby show hide jquery
+        
+        
+
+
+            $("#movie").change(function(){   
+                
+                getmovie($("#movie").val());      
+            
+               }
+            );
+
+            $("#btn").click(function(){   
+                
+                getmovie($("#movie").val());      
+            
+                }
+            );
+
+
+    
+
+
+        
+        
+
+        function getmovie(mov){
+
+            $.get("http://www.omdbapi.com/?apikey=d3c4172c&t=" + mov, function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+
+        console.log(data);
+
+            document.getElementById("title").innerHTML = data["Title"];
+        
+        $("#poster").html('<img src="'+ data.Poster +' ">');
+
+            document.querySelector("#plot").innerHTML = data["Plot"];
+
+        });
+
+                
+
+}
+
+        
+
+
+
+    
+    </script>
+    
+</body>
+</html>

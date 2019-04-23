@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+
+            $(document).ready(function() {
+            
+            $('a').click(function() {
+            
+            $('#one').css('color','green');
+            $('#three').css('color','green');
+
+            });
+
+            }); 
+            
+            </script>
+</head>
+
+<body>
+
+    <h1>My Favourite Pets</h1>
+
+    <ul>
+
+        <li id="one">Cat</li>
+        <li id="two">Goldfish</li>
+        <li id="three">Iguana</li>
+
+    </ul>
+
+    <a href="#">Click Me!</a>
+
+<!-- 
+a) On click of the hyperlink Click Me! change the text color of Goldfish from black to
+yellow.
+
+b) Modify your previous codes so that on click of the hyperlink Click Me! change the text
+color of Cat and Iguana from black to green.
+
+You may use the following template script:-
+
+$(document).ready(function() {
+$(‘your-selector’).click(function() {
+$(‘another-selector’).css(‘property-name’,’value’);
+});
+}); 
+
+-->
+    
+</body>
+
+
+
+
+</html>

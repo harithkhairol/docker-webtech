@@ -1,0 +1,66 @@
+body{
+    margin: 0px;
+}
+
+.left{
+
+
+float: left;
+width: 0; 
+height: 0; 
+border-top: 50vh solid transparent;
+border-bottom: 50vh solid transparent;
+border-left: 50vh solid black;
+
+
+}
+
+/* .left::after{
+
+    content:"";
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    left: 0;
+    background-image:linear-gradient(blue, white);
+    position: absolute; 
+    opacity: 0.5;
+       
+} */
+
+
+
+.right{
+
+    float: left;
+    width: 50%;
+
+}
+
+.welcome{
+
+    position: absolute;
+    top: 20%;
+    right: 10%;
+
+}
+
+.title{
+
+    position: absolute;
+    left: 10%;
+    color: white;
+    top: 10%;
+    font-size: 40px;
+}
+
+.fab{
+
+
+    height:50px;
+    width: 150px;
+    bottom: 20px;
+    right: 50px;
+    position: absolute;
+
+}
